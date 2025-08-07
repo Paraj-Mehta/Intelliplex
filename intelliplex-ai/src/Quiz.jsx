@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Quiz({ quiz }) {
+export default function Quiz({ quiz, generateAdvancedModule }) {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
@@ -69,7 +69,7 @@ export default function Quiz({ quiz }) {
             })}
           </div>
         </div>
-      ) : (
+      ) : (<>
         <div className="bg-white p-6 rounded-lg text-black text-center shadow-lg border border-purple-200">
           <h2 className="text-2xl font-bold mb-4">Quiz Complete!</h2>
           <p className="mb-4 text-lg">
@@ -95,9 +95,20 @@ export default function Quiz({ quiz }) {
                   </p>
                 )}
               </div>
+              
             ))}
           </div>
+          
         </div>
+              
+          {/* ...quiz results... */}
+          <button
+            onClick={generateAdvancedModule}
+            className="mt-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg"
+          >
+            Learn more
+          </button>
+        </>
       )}
     </div>
   );
